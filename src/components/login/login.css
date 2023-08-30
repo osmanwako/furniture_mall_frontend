@@ -5,6 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
 }
 
 .container-form {
@@ -20,7 +21,8 @@
 }
 
 .container-form .form-login {
-  padding: 30px 45px 30px 45px;
+  padding: 45px;
+  padding-top: 10px;
   position: relative;
 }
 

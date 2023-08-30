@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import logo from './logo.png';
 
 const LeftSidebar = () => (
@@ -11,38 +12,35 @@ const LeftSidebar = () => (
       </div>
     </div>
     <div className="left-content">
-      <ul className="action-list">
+      <ul className="nav-list">
         <li className="item">
-          <span>Furniture</span>
+          <NavLink to="/furnitures" className="nav-link">Furniture</NavLink>
         </li>
         <li className="item">
-          <span>Appointment</span>
+          <NavLink to="/furnitures" className="nav-link">Appointment</NavLink>
         </li>
         <li className="item">
-          <span>Sold History</span>
+          <NavLink to="/furnitures" className="nav-link">Sold History</NavLink>
         </li>
         <li className="item">
-          <span>Discount</span>
+          <NavLink to="/furnitures" className="nav-link">Discount</NavLink>
         </li>
         <li className="item">
-          <span>Meetings</span>
-        </li>
-        <li className="item">
-          <span>Trash</span>
+          <NavLink to="/furnitures" className="nav-link">Trash</NavLink>
         </li>
       </ul>
       <ul className="category-list">
         <li className="item">
-          <span>Customer</span>
+          <NavLink to="/furnitures" className="nav-link">Customer</NavLink>
         </li>
         <li className="item">
-          <span>Address</span>
+          <NavLink to="/furnitures" className="nav-link">Our Address</NavLink>
         </li>
         <li className="item">
-          <span>Help</span>
+          <NavLink to="/furnitures" className="nav-link">Help</NavLink>
         </li>
         <li className="item">
-          <span>Logout</span>
+          <NavLink to="/furnitures" className="nav-link">Logout</NavLink>
         </li>
       </ul>
     </div>

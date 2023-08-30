@@ -4,7 +4,7 @@ import Login from './components/login/login';
 import NotFound from './components/pagenotfound.js/notfound';
 import Furnitures from './components/dashboard/furniture/furnitures';
 import Customer from './components/dashboard/customer/customer';
-import Product from './components/dashboard/product/product';
+import Appoint from './components/dashboard/appoint/appoint';
 import Reserve from './components/dashboard/reserve/reserve';
 import History from './components/dashboard/history/history';
 import Home from './components/dashboard/home';
@@ -18,7 +18,7 @@ function App() {
           <Route path="/" exact element={<Furnitures />} />
           <Route path="/furnitures" exact element={<Furnitures />} />
           <Route path="/customers" exact element={<Customer />} />
-          <Route path="/products" exact element={<Product />} />
+          <Route path="/appoints" exact element={<Appoint />} />
           <Route path="/reserves" exact element={<Reserve />} />
           <Route path="/histories" exact element={<History />} />
         </Route>
