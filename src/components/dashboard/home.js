@@ -1,13 +1,10 @@
-import { DashboardProvider } from './dashboardprovider';
 import Dashboard from './dashboard';
 
-const Home = (data) => {
-  const { children } = data;
+const Home = () => {
+  console.log('Home.js');
+
   return (
-    <DashboardProvider>
-      {children}
-      <Dashboard />
-    </DashboardProvider>
+    <Dashboard />
   );
 };
 

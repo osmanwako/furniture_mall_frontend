@@ -1,11 +1,18 @@
+import { useDispatch } from 'react-redux';
 import axios from 'axios';
-import './login.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './login.css';
+import { getSession } from '../../redux/createslice/SessionSlice';
 
 const Login = () => {
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getSession());
+  }, [dispatch]);
+
   const signin = async (e) => {
     e.preventDefault();
     const user = { user: { email: e.target.email.value, password: e.target.password.value } };
@@ -13,18 +20,15 @@ const Login = () => {
       await axios.post('http://localhost:3001/login', user, { withCredentials: true })
         .then((response) => {
           if (response.data) {
-            navigate('/furnitures');
+            axios.defaults.baseURL = 'http://localhost:3001';
+            axios.defaults.headers.common.Authorization = response.headers.authorization;
+            axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+            navigate('/dashboard/furnitures');
           }
           setMessage(() => 'Username or password is incorrect.');
         })
         .catch((error) => {
-          if (error.response) {
-            setMessage(() => `${error.response.data}`);
-          } else if (error.request) {
-            setMessage(() => `${error.request}`);
-          } else {
-            setMessage(() => `${error.message}`);
-          }
+          setMessage(() => `${error.message}`);
         });
     } catch (error) {
       setMessage(() => 'You cannot access the system.<br> Please contact your administrator.');
@@ -32,6 +36,7 @@ const Login = () => {
       e.target.reset();
     }
   };
+
   return (
     <div className="container-login">
       <div className="container-form">
